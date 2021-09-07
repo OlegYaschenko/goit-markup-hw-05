@@ -107,7 +107,9 @@ ul {
 }
 
 .nav-link {
-  transition: color 1000ms var(--transition-timing-function);
+  transition: color 250ms var(--transition-timing-function);
+
+  padding: 32px 0px;
 
   color: var(--title-text-color);
 }
@@ -132,7 +134,9 @@ ul {
 }
 
 .address-link {
-  transition: color 1000ms var(--transition-timing-function);
+  transition: color 250ms var(--transition-timing-function);
+
+  padding: 32px 0px;
 }
 
 .address-link:focus,
@@ -182,7 +186,7 @@ ul {
   text-transform: uppercase;
 }
 .hero-button {
-  transition: background-color 1000ms var(--transition-timing-function);
+  transition: background-color 250ms var(--transition-timing-function);
 
   padding: 10px 32px;
   border-radius: 4px;
@@ -334,8 +338,8 @@ ul {
 }
 
 .team-social-link {
-  transition: color 1000ms var(--transition-timing-function),
-    background-color 1000ms var(--transition-timing-function);
+  transition: color 250ms var(--transition-timing-function),
+    background-color 250ms var(--transition-timing-function);
 
   display: flex;
   justify-content: center;
@@ -366,7 +370,7 @@ ul {
 }
 
 .clients-link {
-  transition: color 1000ms var(--transition-timing-function);
+  transition: color 250ms var(--transition-timing-function);
 
   display: flex;
   justify-content: center;
@@ -455,7 +459,7 @@ ul {
 }
 
 .join-link {
-  transition: background-color 1000ms var(--transition-timing-function);
+  transition: background-color 250ms var(--transition-timing-function);
 
   display: flex;
   justify-content: center;
@@ -525,9 +529,9 @@ ul {
 }
 
 .project-button {
-  transition: color 1000ms var(--transition-timing-function),
-    background-color 1000ms var(--transition-timing-function),
-    box-shadow 1000ms var(--transition-timing-function);
+  transition: color 250ms var(--transition-timing-function),
+    background-color 250ms var(--transition-timing-function),
+    box-shadow 250ms var(--transition-timing-function);
 
   padding: 6px 22px;
   border-radius: 4px;
@@ -558,7 +562,7 @@ ul {
 }
 
 .project-item-card {
-  transition: box-shadow 1000ms var(--transition-timing-function);
+  transition: box-shadow 250ms var(--transition-timing-function);
   margin-right: var(--card-set-gap);
   margin-bottom: var(--card-set-gap);
   width: 370px;
@@ -569,6 +573,45 @@ ul {
 .project-item-card:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.project-item-card:hover .project-text-overlay,
+.project-item-card:focus .project-text-overlay {
+  transform: translateY(0%);
+}
+
+.project-overlay {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.project-text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  overflow: auto;
+
+  display: flex;
+  align-items: center;
+
+  transform: translateY(100%);
+  transition: transform 250ms var(--transition-timing-function);
+
+  line-height: 1.56;
+  font-size: 18px;
+
+  color: var(--primary-white-color);
+  background-color: rgba(33, 150, 243, 0.9);
 }
 
 /* модалка */
@@ -582,6 +625,9 @@ ul {
   height: 100%;
 
   background-color: var(--bg-modal);
+
+  opacity: 1;
+  transition: opacity 250ms var(--transition-timing-function);
 }
 
 .backdrop.is-hidden {
@@ -593,7 +639,8 @@ ul {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms var(--transition-timing-function);
 
   width: 528px;
   height: 581px;
@@ -602,6 +649,10 @@ ul {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   background-color: var(--primary-white-color);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .modal-button {
